@@ -11,8 +11,8 @@ const RegisterationForm: FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    setMatch( password === secondPassword);
-  }, [password, secondPassword]);
+    setMatch(password === secondPassword);
+  }, [password, secondPassword, setMatch]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +25,6 @@ const RegisterationForm: FC = () => {
 
     setvalidPassword(checker.valid);
     setErrorMessage(checker.message);
-    setMatch( password === secondPassword);
   };
 
   return (
