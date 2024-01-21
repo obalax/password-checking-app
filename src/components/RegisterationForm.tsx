@@ -2,23 +2,35 @@ import React, { useEffect, useState, FC, FormEvent } from "react";
 import { verifyPassword } from "../lib/passwordVerification";
 
 const RegisterationForm: FC = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [secondPassword, setSecondPassword] = useState("");
-
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    secondPassword: "",
+  });
   const [validPassword, setvalidPassword] = useState(false);
   const [match, setMatch] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    setMatch(password === secondPassword);
-  }, [password, secondPassword, setMatch]);
+    setMatch(formData.password === formData.secondPassword);
+  }, [formData, setMatch]);
+
+  const handleInputChange = (e: {
+    target: { name: string; value: string };
+  }) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const checker = verifyPassword({
-      inputPassword: password,
+      inputPassword: formData.password,
       passwordLength: 6,
       allowedSpecialCharacters: /[!@#$%^&*()_\-+={[}\]|:;"'<,>.]/,
     });
@@ -36,8 +48,9 @@ const RegisterationForm: FC = () => {
           <label>Username:</label>
           <input
             type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -45,8 +58,9 @@ const RegisterationForm: FC = () => {
           <label>Password:</label>
           <input
             type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -54,8 +68,9 @@ const RegisterationForm: FC = () => {
           <label>Repeat Password</label>
           <input
             type="password"
-            value={secondPassword}
-            onChange={(event) => setSecondPassword(event.target.value)}
+            name="secondPassword"
+            value={formData.secondPassword}
+            onChange={handleInputChange}
           />
         </div>
 
@@ -79,11 +94,14 @@ const RegisterationForm: FC = () => {
           </div>
         </div>
 
-        {password && errorMessage && <p className="error">{errorMessage}</p>}
+        {formData.password && errorMessage && (
+          <p className="error">{errorMessage}</p>
+        )}
         {!match && <p className="error">Passwords do not match</p>}
-        {password === secondPassword && validPassword && (
+        {formData.password === formData.secondPassword && validPassword && (
           <p className="success">You have successfully set your password</p>
         )}
+
         <button type="submit">Register</button>
       </form>
     </div>
