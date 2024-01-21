@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import RegisterationForm from "./components/RegisterationForm";
 
 function App() {
   return (
@@ -9,6 +10,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h3>Password Checker</h3>
       </header>
+
+      <div className="App-body">
+        <RegisterationForm />
+      </div>
     </div>
   );
 }
