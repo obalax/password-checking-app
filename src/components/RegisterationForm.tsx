@@ -1,5 +1,5 @@
 import React, { useEffect, useState, FC, FormEvent } from "react";
-import { verifyPassword } from "../lib/passwordVerification.tsx";
+import { verifyPassword } from "../lib/passwordVerification";
 
 const RegisterationForm: FC = () => {
   const [username, setUsername] = useState("");
