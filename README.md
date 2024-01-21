@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Password-Checking-App
+
+### Overview of Password-Checking-App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Components
 
-In the project directory, you can run:
+The Password-Checking-App is a frontend component.
 
-### `yarn start`
+### Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features
 
-### `yarn test`
+- Register user.
+- Check input password based on the following criteria
+  - Password has a min length of 6 characters
+  - Password has at least 1 uppercase character
+  - Password has at least 1 lowercase character
+  - Password has at least 1 number
+  - Password has at least 1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)
+- Display error or success message after submission
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Requirements
 
-### `yarn build`
+Make sure you have installed all of the following prerequisites on your development machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Git - [Download & Install Git](https://git-scm.com/downloads). MacOS and Linux machines typically have this already installed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. Make sure to get the latest active LTS version.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Download the Employee-Web-App from this [link](https://github.com/obalax/password-checking-app) or use `git clone git@github.com:obalax/password-checking-app.git`.
 
-### `yarn eject`
+- A web browser (`e.g. Google Chrome, Mozila, Firefox e.t.c`).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How to start Password-Checking-App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Open another computer terminal (`command-line interface`).
+- Locate the downloaded Password-Checking-App folder.
+- Change the directory to the Password-Checking-App folder(e.g `cd Password-Checking-App`).
+- Run `yarn install`.
+- Run `yarn start`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Password-Checking-App Usage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run Password-Checking-App, follow the steps below.
 
-## Learn More
+### STEPS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- After starting the app.
+- Enter the localhost address using port 8080 (`e.g http://localhost:3000`)
+- Fill the registraton form.
+- Click the Register button.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### To run unit tests(Currently no test written)
+
+- Run `yarn test`
